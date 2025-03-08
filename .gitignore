@@ -1,0 +1,11 @@
+.nsfg
+/mysql/data
+/logs
+/_BKP
+/BKP
+.env
+/.fleet
+/.idea/
+/.vscode
+/redis/data
+!/keycloak/data/import

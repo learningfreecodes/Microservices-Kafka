@@ -1,0 +1,50 @@
+{
+  "realm" : "hubii",
+  "users" : [ {
+    "id" : "990a4da4-87a5-4e02-ad53-7df91b38efde",
+    "createdTimestamp" : 1706241574001,
+    "username" : "leonardo",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Leonardo",
+    "lastName" : "Maia Costa",
+    "email" : "admin@fpinfo.com.br",
+    "attributes" : {
+      "locale" : [ "en" ]
+    },
+    "credentials" : [ {
+      "id" : "10b3034e-61b2-41ff-b6fa-9f3f606d1e41",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1706684866571,
+      "secretData" : "{\"value\":\"PQLqVF/MNJDSX5lxqR5+rHWdpU/y5f5hHQVuzv08ykQ=\",\"salt\":\"xMGDTjoW3SwRi4c1zs8dcg==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-hubii", "uma_authorization", "offline_access" ],
+    "clientRoles" : {
+      "api-products" : [ "uma_protection" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "c7a88a7b-2c59-4000-8abf-2065b864fef1",
+    "createdTimestamp" : 1706243733489,
+    "username" : "service-account-api-products",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "serviceAccountClientId" : "api-products",
+    "credentials" : [ ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-hubii" ],
+    "clientRoles" : {
+      "api-products" : [ "uma_protection" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}

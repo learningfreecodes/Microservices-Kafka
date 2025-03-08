@@ -1,0 +1,213 @@
+version: "3.1"
+services:
+  nginx:
+    container_name: hubii_nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    # user: "nginx:nginx"
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - hubii_dev
+    volumes:
+      - ./nginx/config/certs:/etc/nginx/certs
+      - ./nginx/config/conf.d:/etc/nginx/conf.d
+      - ./nginx/config/nginx.conf:/etc/nginx/nginx.conf
+      - ./home:/var/www/html
+      # - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - laravel_product
+      - laravel_integration
+      - keycloak
+  laravel_product:
+    container_name: hubii_api_product
+    build:
+      context: ./api-product/apache
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: ${WWWGROUP}
+    ports:
+      - '8001:80'
+      - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+    environment:
+      WWWUSER: ${WWWUSER}
+      LARAVEL_SAIL: 1
+      XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
+      XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+      # IGNITION_LOCAL_SITES_PATH: '${PWD}/api-product'
+    volumes:
+      - ./api-product:/var/www/html
+    networks:
+      - hubii_dev
+    depends_on:
+      - db
+      - redis
+      - kafka
+  # laravel_order:
+  #   container_name: hubii_api_order
+  #   build:
+  #     context: ./api-order/vendor/laravel/sail/runtimes/8.2
+  #     dockerfile: Dockerfile
+  #     args:
+  #       WWWGROUP: '${WWWGROUP}'
+  #   image: sail-8.2/app
+  #   extra_hosts:
+  #     - 'host.docker.internal:host-gateway'
+  #   ports:
+  #     - '8002:80'
+  #   environment:
+  #     WWWUSER: '${WWWUSER}'
+  #     LARAVEL_SAIL: 1
+  #     XDEBUG_MODE: 'develop,debug,coverage'
+  #     XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+  #     IGNITION_LOCAL_SITES_PATH: '${PWD}'
+  #   volumes:
+  #     - ./api-order:/var/www/html
+  #   networks:
+  #     - hubii_dev
+  #   depends_on:
+  #     - db
+  laravel_integration:
+    container_name: hubii_api_integration
+    build:
+      context: ./api-integration/apache
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: ${WWWGROUP}
+    image: sail-8.3/app
+    # extra_hosts:
+    #   - 'host.docker.internal:host-gateway'
+    # command: 
+    #   - php artisan queue:work --queue=integration_queue
+    # ports:
+    #   - '8003:80'
+    #   - '${VITE_PORT:-5174}:${VITE_PORT:-5173}'
+    environment:
+      WWWUSER: ${WWWUSER}
+      LARAVEL_SAIL: 1
+      XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
+      XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+      # IGNITION_LOCAL_SITES_PATH: '${PWD}/api-product'
+    volumes:
+      - ./api-integration:/var/www/html
+    networks:
+      - hubii_dev
+    depends_on:
+      - db
+      - redis
+      - kafka
+  redis:
+    container_name: hubii_redis
+    image: 'redis:alpine'
+    restart: unless-stopped
+    ports:
+      - '${FORWARD_REDIS_PORT:-6379}:6379'
+    volumes:
+      - './redis/data:/data'
+    networks:
+      - hubii_dev
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      retries: 3
+      timeout: 5s
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.4
+    container_name: hubii_keycloak
+    restart: unless-stopped
+    volumes:
+      - ./keycloak/data/import:/opt/keycloak/data/import
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin    
+      KC_DB: "mysql"
+      KC_DB_URL: 'jdbc:mysql://hubii_mysql:3306/hubii_keycloak'
+      KC_DB_USERNAME: root
+      KC_DB_PASSWORD: root      
+      KC_HOSTNAME_STRICT: false
+      KC_PROXY: edge
+    # entrypoint: /opt/keycloak/bin/kc.sh start-dev 
+    command: ["start-dev", "--import-realm"]
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - hubii_dev
+  db:
+    container_name: hubii_mysql
+    image: mysql:8.0.35
+    restart: unless-stopped
+    volumes:
+      - 'hubbi-mysql:/var/lib/mysql'
+      - ./mysql/data/init-scripts:/docker-entrypoint-initdb.d      
+      # - ./mysql/data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      # MYSQL_DATABASE: hubii_keycloak,hubii_products,hubii_orders
+      MYSQL_USER: hubii
+      MYSQL_PASSWORD: hubii
+    ports:
+      - "3308:3306"
+    networks:
+      - hubii_dev
+
+  zookeeper:
+    container_name: hubii_zookeeper
+    image: 'bitnami/zookeeper:latest'
+    restart: unless-stopped
+    networks:
+      - hubii_dev
+    ports:
+      - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    container_name: hubii_kafka
+    image: 'bitnami/kafka:latest'
+    restart: unless-stopped
+    ports:
+      - '9092:9092'
+      - '9093:9093'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENERS=CLIENT://:9092
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=CLIENT://hubii_kafka:9092
+      - KAFKA_ZOOKEEPER_CONNECT=hubii_zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://hubii_kafka:9092,EXTERNAL://localhost:9093
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+      - KAFKA_INTER_BROKER_LISTENER_NAME=CLIENT
+    depends_on:
+      - zookeeper
+    networks:
+      - hubii_dev
+  kafdrop:
+    image: obsidiandynamics/kafdrop:latest
+    container_name: hubii_kafdrop
+    depends_on:
+      - kafka
+    ports:
+      - 19000:9000
+    environment:
+      KAFKA_BROKERCONNECT: hubii_kafka:9092
+    networks: 
+      - hubii_dev
+
+networks:
+  hubii_dev:
+      
+
+volumes:
+  hubbi-mysql:
+      driver: local

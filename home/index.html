@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'tablet': '640px',
+                    // => @media (min-width: 640px) { ... }
+
+                    'laptop': '1024px',
+                    // => @media (min-width: 1024px) { ... }
+
+                    'desktop': '1280px',
+                    // => @media (min-width: 1280px) { ... }
+                },
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="antialiased device-width bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-blue-500 selection:text-white">
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between px-3 py-2 border-b shadow-lg bg-white/90 backdrop-blur-sm border-slate-400/40">
+        <div class="flex items-center flex-grow basis-0 ">
+            <img src="https://assets-global.website-files.com/659ff18fc5e5262659df89e8/65a55ef2004a978a3ca3731c_hubii-main-blue.svg"
+                loading="lazy" width="100" alt="" class="image-6">
+        </div>
+    </header>
+
+    <head>
+        <div class="w-96  mx-auto px-6 lg:p-0">
+            <div class=" justify-center flex">
+                <a href="https://fpinfo.com.br"><img alt="Logo FPINFO" loading="lazy" width="100" height="100"
+                        class="mt-0 fle object-cover h-36 w-96" style="color:transparent"
+                        src="https://fpinfo.com.br/_next/static/media/01.2028ba01.png"></a>
+            </div>
+            <div class="text-center w-full justify-center">
+                <p>Author: <b>Leonardo Maia Costa</b> </p>
+            </div>
+
+            <div class="text-center w-full justify-center">
+                <p> Solution hosted on Docker containers on:</p>
+            </div>
+
+            <div class="flex items-center justify-center">
+                <a
+                    href="https://www.digitalocean.com/?refcode=97806dfd4666&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%202.svg"
+                        alt="DigitalOcean Referral Badge" />
+                </a>
+            </div>
+
+        </div>
+    </head>
+
+    <div
+        class="container mx-auto sm:p-1 p-6 bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-blue-500 selection:text-white">
+        <h1 id="hubii---challenge" class="py-6 text-lg justify-between font-semibold  tracking-tight text-slate-900">
+            DDESAFIO - DESCRIÇÃO
+        </h1>
+        <div class="px-5">
+            <p class="m-2">
+                Estamos procurando um desenvolvedor back-end sênior para se juntar à
+                nossa equipe e ajudar a criar e gerenciar nossos micro-serviços em PHP
+                (Laravel). Este teste técnico tem como objetivo avaliar suas habilidades
+                técnicas nessas áreas.
+            </p>
+            <h2 id="instruções-gerais" class="text-lg font-semibold tracking-tight text-slate-900">
+                Instruções Gerais
+            </h2>
+            <p class="mx-2">
+                Crie três micro-serviços separados usando Laravel: Produto, Pedido e
+                Integração com Shopify. Os serviços devem se comunicar entre si conforme
+                necessário.
+            </p>
+            <p class="mx-2">
+                Implemente autenticação JWT ou OAuth 2.0 para os micro-serviços.
+            </p>
+            <p class="mx-2">
+                Escreva testes unitários e de integração para os micro-serviços.
+            </p>
+            <h3 id="micro-serviço-de-produto" class="font-semibold tracking-tight text-slate-900">
+                Micro-Serviço de Produto
+            </h3>
+            <p class="mx-2">
+                Implemente um endpoint para a criação de um novo produto. O produto deve
+                ter, no mínimo, um nome, uma descrição e um preço.
+            </p>
+            <p class="mx-2">
+                Implemente um endpoint para listar todos os produtos disponíveis.
+            </p>
+            <p class="mx-2">
+                Implemente um endpoint para atualizar as informações de um produto
+                existente.
+            </p>
+            <h3 id="micro-serviço-de-pedido" class="font-semibold tracking-tight text-slate-900">
+                Micro-Serviço de Pedido
+            </h3>
+            <p class="mx-2">
+                Implemente um endpoint para a criação de um novo pedido. O pedido deve
+                fazer referência a um ou mais produtos.
+            </p>
+            <p class="mx-2">
+                Implemente um endpoint para listar todos os pedidos realizados.
+            </p>
+            <h3 id="micro-serviço-de-integração" class="font-semibold tracking-tight text-slate-900">
+                Micro-Serviço de Integração
+            </h3>
+            <p class="mx-2">
+                Implemente uma funcionalidade que sincroniza a lista de produtos entre o
+                micro-serviço de Produto e a loja Shopify. A sincronização deve ocorrer
+                quando um produto é criado, atualizado ou excluído no micro-serviço de
+                Produto.
+            </p>
+            <p class="mx-2">
+                Implemente uma funcionalidade que sincroniza a lista de pedidos entre a
+                loja Shopify e o micro-serviço de Pedido. A sincronização deve ocorrer
+                quando um pedido é feito na loja Shopify.
+            </p>
+            <p class="mx-2">
+                Implemente um sistema de manuseio de erros robusto para lidar com
+                possíveis falhas na comunicação entre os micro-serviços e a loja
+                Shopify.
+            </p>
+            <p class="mx-2">
+                Implemente logs que rastreiem todas as ações realizadas pelo
+                micro-serviço de Integração com Shopify.
+            </p>
+        </div>
+    </div>
+    <div class="container mx-auto sm:p-1 p-6">
+
+        <h1 id="hubii---challenge" class="py-6 text-lg justify-between font-semibold  tracking-tight text-slate-900">
+            SOLUÇÃO
+        </h1>
+
+        <div class="gap-2 text-center mb-10">
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-blue-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">Docker</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-blue-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">Docker Compose</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-green-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">NGINX</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-amber-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-black">
+                <div class="mt-px">PHP</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-amber-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-black">
+                <div class="mt-px">Laravel</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-pink-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">MySql</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-red-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">Redis</div>
+            </div>
+
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-800 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">Apache Kafka</div>
+            </div>
+
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-indigo-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">Keycloack</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-purple-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">Next.js</div>
+            </div>
+        </div>
+
+
+        <div class="px-5">
+            <p class="mx-2">
+
+            </p>
+            <p class="mx-2">
+                Foram criadas 3 microserviços em larevel distribuidos ja em Conteiners os containers ficam atras de
+                outro container NGINX com as configurações de dominio.
+            </p>
+            <p class="mx-2">
+                Apĺicado SSL local usando mkcert para gerar os certificados usando o mkcert, o certificado local criado
+                vai junto no projeto, caso não funcione na sua maquina ou se ele expirou usar o comando na pasta do
+                projeto /nginx/config/certs
+                <br />
+                <b class="mx-5">mkcert -key-file hubii.local.key.pem -cert-file hubii.local.pem localhost hubii.local
+                    "*.hubii.local" 127.0.0.1 ::1</b>
+                <br />
+                <a href="https://github.com/FiloSottile/mkcert" class="text-blue-600 visited:text-purple-600">
+                    Documentação e instação do mkcert
+                </a>
+            </p>
+
+
+            <p class="mx-2 mt-1">
+                Cada um dos serviços funciona em um subominio especifo, para rodar local
+                o projeto você deverá adicionar no host da sua maquina os serviços e a
+                porta 443 tambêm deverá estar liberada para uso exemplo em linux a linha
+                a ser adcionada o arquivo /etc/hosts
+            </p>
+
+            <div class="m-2 w-4/5 font-bold">
+                127.0.0.1 hubii.local hubii_product.local hubii_order.local hubii_integration.local hubii_keycloak.local
+            </div>
+
+            <p class="mx-2">
+                Link de acesso as api documentadas usando OpenAPI Specification.
+            </p>
+            <div class="mt-2 relative z-10 mb-5 flex">
+                <div class="w-96 mx-auto px-6 lg:p-0">
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 lg:gap-8">
+                        <a href="https://hubii_product.fpinfo.com.br/docs/api" target="_blank"
+                            class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
+                            <div class="p-0 flex">
+                                <div
+                                    class="h-16 w-16 bg-blue-50 dark:bg-blue-800/20 flex text-center items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" class="w-7 h-7 stroke-blue-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h2 class="grow mt-4 ml-2 text-xl font-semibold text-gray-900 dark:text-white">
+                                    API Produtos</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2 relative z-10 mb-5 flex">
+                <div class="w-96  mx-auto px-6 lg:p-0">
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 lg:gap-8">
+                        <a href="https://hubii_order.fpinfo.com.br/docs/api" target="_blank"
+                            class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
+                            <div class="p-0 flex">
+                                <div
+                                    class="h-16 w-16 bg-blue-50 dark:bg-blue-800/20 flex text-center items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" class="w-7 h-7 stroke-blue-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h2 class="grow mt-4 ml-2 text-xl font-semibold text-gray-900 dark:text-white">
+                                    API Pedidos</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2 relative z-10 mb-5 flex">
+                <div class="w-96  mx-auto px-6 lg:p-0">
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 lg:gap-8">
+                        <a href="https://hubii_integration.fpinfo.com.br/horizon/dashboard" target="_blank"
+                            class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
+                            <div class="p-0 flex">
+                                <div
+                                    class="h-16 w-16 bg-blue-50 dark:bg-blue-800/20 flex text-center items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" class="w-7 h-7 stroke-blue-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h2 class="grow mt-4 ml-2 text-xl font-semibold text-gray-900 dark:text-white">
+                                    Horizon Integração</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>   
+            <div class="mt-2 relative z-10 mb-5 flex">
+                <div class="w-96  mx-auto px-6 lg:p-0">
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 lg:gap-8">
+                        <a href="https://hubii_integration.fpinfo.com.br/docs/api/telescope" target="_blank"
+                            class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
+                            <div class="p-0 flex">
+                                <div
+                                    class="h-16 w-16 bg-blue-50 dark:bg-blue-800/20 flex text-center items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" class="w-7 h-7 stroke-blue-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h2 class="grow mt-4 ml-2 text-xl font-semibold text-gray-900 dark:text-white">
+                                    Telescope Integração</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>                        
+            <!-- <div class="mt-2 relative z-10 mb-5">
+                <ul
+                    class="mt-1  max-w-xs text-left font-medium text-lg leading-none border-blue-200 divide-y divide-blue-200">
+                    <li>
+                        <a class="mt-1 w-full flex items-center text-blue-500 hover:text-blue-700 hover:bg-blue-50"
+                            href="https://hubii_product.local" target="_blank">
+                            <span class="ml-5 mr-2.5 w-1 h-7 bg-blue-500 rounded-r-md"></span>
+                            <p>
+                                API Produtos
+                                <span
+                                    class="font-normal text-gray-500 text-sm">(https://hubii_product.local/api/)</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mt-1 w-full flex items-center text-blue-500 hover:text-blue-700 hover:bg-blue-50"
+                            href="https://hubii_order.local" target="_blank">
+                            <span class="ml-5 mr-2.5 w-1 h-7 bg-blue-500 rounded-r-md"></span>
+                            <p>
+                                Pedidos
+                                <span
+                                    class="font-normal text-gray-500 text-sm">(https://hubii_order.local/documentation/)</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mt-1 w-full flex items-center text-blue-500 hover:text-blue-700 hover:bg-blue-50"
+                            href="https://hubii_integration.local" target="_blank">
+                            <span class="ml-5 mr-2.5 w-1 h-7 bg-blue-500 rounded-r-md"></span>
+                            <p>
+                                Integração
+                                <span
+                                    class="font-normal text-gray-500 text-sm">(https://hubii_integration.loca/documentation/l)</span>
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div> -->
+
+            <p class="mx-2"> As apis são protegidas usando o Keycloack tambêm rodando em container.
+                A abordagem de usar o keycloack unifica em um lugar a gestão dos tokens de acesso evitando ter que
+                aplicar três vezes a mesma sulução para as api's. acesso ao keycloack local
+            </p>
+
+            <div class="mt-2 relative z-10 mb-5 flex">
+                <div class="w-96  mx-auto px-6 lg:p-0">
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 lg:gap-8">
+                        <a href="https://hubii_keycloak.fpinfo.com.br" target="_blank"
+                            class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
+                            <div class="p-0 flex">
+                                <div
+                                    class="h-16 w-16 bg-blue-50 dark:bg-blue-800/20 flex text-center items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" class="w-7 h-7 stroke-blue-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h2 class="grow mt-4 ml-2 text-xl font-semibold text-gray-900 dark:text-white">
+                                    KeyCloack</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>   
+            
+            </main>
+</body>
+
+</html>

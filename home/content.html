@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="antialiased device-width">
+    <main class="px-5 pt-10 pb-20">
+        <h1 id="hubii---challenge" class="text-lg justify-between font-semibold  tracking-tight text-slate-900">
+            DESCRIÇÃO
+        </h1>
+        <div class="px-5">
+            <p class="m-2">
+                Estamos procurando um desenvolvedor back-end sênior para se juntar à
+                nossa equipe e ajudar a criar e gerenciar nossos micro-serviços em PHP
+                (Laravel). Este teste técnico tem como objetivo avaliar suas habilidades
+                técnicas nessas áreas.
+            </p>
+            <h2 id="instruções-gerais" class="text-lg font-semibold tracking-tight text-slate-900">
+                Instruções Gerais
+            </h2>
+            <p class="mx-2">
+                Crie três micro-serviços separados usando Laravel: Produto, Pedido e
+                Integração com Shopify. Os serviços devem se comunicar entre si conforme
+                necessário.
+            </p>
+            <p class="mx-2">
+                Implemente autenticação JWT ou OAuth 2.0 para os micro-serviços.
+            </p>
+            <p class="mx-2">
+                Escreva testes unitários e de integração para os micro-serviços.
+            </p>
+            <h3 id="micro-serviço-de-produto" class="font-semibold tracking-tight text-slate-900">
+                Micro-Serviço de Produto
+            </h3>
+            <p class="mx-2">
+                Implemente um endpoint para a criação de um novo produto. O produto deve
+                ter, no mínimo, um nome, uma descrição e um preço.
+            </p>
+            <p class="mx-2">
+                Implemente um endpoint para listar todos os produtos disponíveis.
+            </p>
+            <p class="mx-2">
+                Implemente um endpoint para atualizar as informações de um produto
+                existente.
+            </p>
+            <h3 id="micro-serviço-de-pedido" class="font-semibold tracking-tight text-slate-900">
+                Micro-Serviço de Pedido
+            </h3>
+            <p class="mx-2">
+                Implemente um endpoint para a criação de um novo pedido. O pedido deve
+                fazer referência a um ou mais produtos.
+            </p>
+            <p class="mx-2">
+                Implemente um endpoint para listar todos os pedidos realizados.
+            </p>
+            <h3 id="micro-serviço-de-integração" class="font-semibold tracking-tight text-slate-900">
+                Micro-Serviço de Integração
+            </h3>
+            <p class="mx-2">
+                Implemente uma funcionalidade que sincroniza a lista de produtos entre o
+                micro-serviço de Produto e a loja Shopify. A sincronização deve ocorrer
+                quando um produto é criado, atualizado ou excluído no micro-serviço de
+                Produto.
+            </p>
+            <p class="mx-2">
+                Implemente uma funcionalidade que sincroniza a lista de pedidos entre a
+                loja Shopify e o micro-serviço de Pedido. A sincronização deve ocorrer
+                quando um pedido é feito na loja Shopify.
+            </p>
+            <p class="mx-2">
+                Implemente um sistema de manuseio de erros robusto para lidar com
+                possíveis falhas na comunicação entre os micro-serviços e a loja
+                Shopify.
+            </p>
+            <p class="mx-2">
+                Implemente logs que rastreiem todas as ações realizadas pelo
+                micro-serviço de Integração com Shopify.
+            </p>
+        </div>
+        <h1 id="hubii---challenge" class="pt-5 text-lg font-semibold tracking-tight text-slate-900">
+            SOLUÇÃO
+        </h1>
+
+        <div class=" gap-2 ">
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-blue-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">Docker</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-blue-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">Docker Compose</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-green-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">NGINX</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-amber-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-black">
+                <div class="mt-px">PHP</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-amber-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-black">
+                <div class="mt-px">Laravel</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-pink-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">MySql</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-indigo-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">Keycloack</div>
+            </div>
+            <div
+                class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-purple-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                <div class="mt-px">Next.js</div>
+            </div>
+        </div>
+
+
+        <div class="px-5">
+            <p class="mx-2">
+
+            </p>
+            <p class="mx-2">
+                Foram criadas 3 microserviços em larevel distribuidos ja em Conteiners os containers ficam atras de
+                outro container NGINX com as configurações de dominio.
+            </p>
+            <p class="mx-2">
+                Apĺicado SSL local usando mkcert para gerar os certificados usando o mkcert, o certificado local criado
+                vai junto no projeto, caso não funcione na sua maquina ou se ele expirou usar o comando na pasta do
+                projeto /nginx/config/certs
+                <br />
+                <b class="mx-5">mkcert -key-file hubii.local.key.pem -cert-file hubii.local.pem localhost hubii.local
+                    "*.hubii.local" 127.0.0.1 ::1</b>
+                <br />
+                <a href="https://github.com/FiloSottile/mkcert" class="text-blue-600 visited:text-purple-600">
+                    Documentação e instação do mkcert
+                </a>
+            </p>
+
+
+            <p class="mx-2 mt-1">
+                Cada um dos serviços funciona em um subominio especifo, para rodar local
+                o projeto você deverá adicionar no host da sua maquina os serviços e a
+                porta 443 tambêm deverá estar liberada para uso exemplo em linux a linha
+                a ser adcionada o arquivo /etc/hosts
+            </p>
+
+            <div class="m-2 w-4/5 font-bold">
+                127.0.0.1 hubii.local hubii_product.local hubii_order.local hubii_integration.local hubii_keycloak.local
+                auth.hubii.local
+            </div>
+
+            <p class="mx-2">
+                Link de acesso as api documentadas usando OpenAPI Specification.
+            </p>
+
+            <div class="mt-2 relative z-10 mb-5">
+                <ul
+                    class="mt-1  max-w-xs text-left font-medium text-lg leading-none border-blue-200 divide-y divide-blue-200">
+                    <li>
+                        <a class="mt-1 w-full flex items-center text-blue-500 hover:text-blue-700 hover:bg-blue-50"
+                            href="https://hubii_product.local" target="_blank">
+                            <span class="ml-5 mr-2.5 w-1 h-7 bg-blue-500 rounded-r-md"></span>
+                            <p>
+                                Produtos
+                                <span
+                                    class="font-normal text-gray-500 text-sm">(https://hubii_product.local/documentation/)</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mt-1 w-full flex items-center text-blue-500 hover:text-blue-700 hover:bg-blue-50"
+                            href="https://hubii_order.local" target="_blank">
+                            <span class="ml-5 mr-2.5 w-1 h-7 bg-blue-500 rounded-r-md"></span>
+                            <p>
+                                Pedidos
+                                <span
+                                    class="font-normal text-gray-500 text-sm">(https://hubii_order.local/documentation/)</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mt-1 w-full flex items-center text-blue-500 hover:text-blue-700 hover:bg-blue-50"
+                            href="https://hubii_integration.local" target="_blank">
+                            <span class="ml-5 mr-2.5 w-1 h-7 bg-blue-500 rounded-r-md"></span>
+                            <p>
+                                Integração
+                                <span
+                                    class="font-normal text-gray-500 text-sm">(https://hubii_integration.loca/documentation/l)</span>
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <p class="mx-2"> As apis são protegidas usando o Keycloack tambêm rorando em container, para acessar
+                localmente
+                <a href="https://hubii_keycloak.local/" class="text-blue-600 visited:text-purple-600" target="_blank">
+                    https://hubii_keycloak.local/</a>.
+                A abordagem de usar o keycloack unifica em um lugar a gestão dos tokens de acesso evitando ter que
+                aplicar três vezes a mesma sulução para as api's. acesso ao keycloack local
+            </p>
+
+
+            <div class="mt-2 relative z-10 mb-5">
+                <ul
+                    class="mt-1  max-w-xs text-left font-medium text-lg leading-none border-blue-200 divide-y divide-blue-200">
+                    <li>
+                        <a class="mt-1 w-full flex items-center text-blue-500 hover:text-blue-700 hover:bg-blue-50"
+                            href="https://hubii_keycloak.local">
+                            <span class="ml-5 mr-2.5 w-1 h-7 bg-blue-500 rounded-r-md"></span>
+                            <p>
+                                Keycloack
+                                <span class="font-normal text-gray-500 text-sm">(https://hubii_keycloak.local)</span>
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

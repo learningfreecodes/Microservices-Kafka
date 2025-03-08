@@ -1,0 +1,26 @@
+{
+  "realm" : "master",
+  "users" : [ {
+    "id" : "051ea67c-ca2d-4558-b46e-8aef74cb84a9",
+    "createdTimestamp" : 1706241058224,
+    "username" : "admin",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "credentials" : [ {
+      "id" : "af851176-56fd-4aa2-baba-59e18203fd22",
+      "type" : "password",
+      "createdDate" : 1706241058379,
+      "secretData" : "{\"value\":\"HT5deH2V2aCANNv1mi13CH367ymn4omeEmh3ORUJH2Y=\",\"salt\":\"UOjFQiTn9Q5pLyHgv+zBZw==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "admin", "default-roles-master" ],
+    "clientRoles" : {
+      "hubii-realm" : [ "create-client", "view-clients", "manage-users", "manage-events", "manage-realm", "view-events", "query-users", "view-identity-providers", "manage-clients", "query-realms", "manage-identity-providers", "view-realm", "query-clients", "view-users", "view-authorization", "manage-authorization", "query-groups" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}

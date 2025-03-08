@@ -1,0 +1,698 @@
+{
+    "orders": [
+        {
+            "id": 5347861987640,
+            "admin_graphql_api_id": "gid:\/\/shopify\/Order\/5347861987640",
+            "app_id": 580111,
+            "browser_ip": "177.220.186.147",
+            "buyer_accepts_marketing": false,
+            "cancel_reason": null,
+            "cancelled_at": null,
+            "cart_token": "c1-058c699584b592f8cb4e677cd5f75a02",
+            "checkout_id": 36725334147384,
+            "checkout_token": "10348ce7c95581a0f4ab33156c5ed191",
+            "client_details": {
+                "accept_language": "en-BR",
+                "browser_height": null,
+                "browser_ip": "177.220.186.147",
+                "browser_width": null,
+                "session_hash": null,
+                "user_agent": "Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/114.0.0.0 Safari\/537.36"
+            },
+            "closed_at": null,
+            "company": null,
+            "confirmation_number": "XWNMG5CDK",
+            "confirmed": true,
+            "contact_email": "felipelatif@hubii.com.br",
+            "created_at": "2023-06-22T08:54:37-04:00",
+            "currency": "BRL",
+            "current_subtotal_price": "135.00",
+            "current_subtotal_price_set": {
+                "shop_money": {
+                    "amount": "135.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "135.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "current_total_additional_fees_set": null,
+            "current_total_discounts": "0.00",
+            "current_total_discounts_set": {
+                "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "current_total_duties_set": null,
+            "current_total_price": "135.00",
+            "current_total_price_set": {
+                "shop_money": {
+                    "amount": "135.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "135.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "current_total_tax": "0.00",
+            "current_total_tax_set": {
+                "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "customer_locale": "en-BR",
+            "device_id": null,
+            "discount_codes": [],
+            "email": "felipelatif@hubii.com.br",
+            "estimated_taxes": false,
+            "financial_status": "paid",
+            "fulfillment_status": null,
+            "landing_site": "\/password",
+            "landing_site_ref": null,
+            "location_id": null,
+            "merchant_of_record_app_id": null,
+            "name": "#1002",
+            "note": null,
+            "note_attributes": [],
+            "number": 2,
+            "order_number": 1002,
+            "order_status_url": "https:\/\/hubii-test.myshopify.com\/78660829496\/orders\/c94b0fa9c2057f1d71742dd700da2cf6\/authenticate?key=0f8de9a5d07965668cb107f7d7f7b63a",
+            "original_total_additional_fees_set": null,
+            "original_total_duties_set": null,
+            "payment_gateway_names": [
+                "bogus"
+            ],
+            "phone": null,
+            "po_number": null,
+            "presentment_currency": "BRL",
+            "processed_at": "2023-06-22T08:54:35-04:00",
+            "reference": "ffd75f9ef263e18ef57e1cb288287d26",
+            "referring_site": "",
+            "source_identifier": "ffd75f9ef263e18ef57e1cb288287d26",
+            "source_name": "web",
+            "source_url": null,
+            "subtotal_price": "135.00",
+            "subtotal_price_set": {
+                "shop_money": {
+                    "amount": "135.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "135.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "tags": "",
+            "tax_exempt": false,
+            "tax_lines": [],
+            "taxes_included": false,
+            "test": true,
+            "token": "c94b0fa9c2057f1d71742dd700da2cf6",
+            "total_discounts": "0.00",
+            "total_discounts_set": {
+                "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "total_line_items_price": "135.00",
+            "total_line_items_price_set": {
+                "shop_money": {
+                    "amount": "135.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "135.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "total_outstanding": "0.00",
+            "total_price": "135.00",
+            "total_price_set": {
+                "shop_money": {
+                    "amount": "135.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "135.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "total_shipping_price_set": {
+                "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "total_tax": "0.00",
+            "total_tax_set": {
+                "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "total_tip_received": "0.00",
+            "total_weight": 3000,
+            "updated_at": "2023-06-22T08:54:38-04:00",
+            "user_id": null,
+            "billing_address": {
+                "first_name": "Felipe",
+                "address1": "Rua Guaraná, 75",
+                "phone": null,
+                "city": "Curitiba",
+                "zip": "81560-200",
+                "province": "Paraná",
+                "country": "Brazil",
+                "last_name": "Mechailech",
+                "address2": null,
+                "company": null,
+                "latitude": -25.4833474,
+                "longitude": -49.2170166,
+                "name": "Felipe Mechailech",
+                "country_code": "BR",
+                "province_code": "PR"
+            },
+            "customer": {
+                "id": 7001004671288,
+                "email": "felipelatif@hubii.com.br",
+                "created_at": "2023-06-21T14:14:49-04:00",
+                "updated_at": "2023-06-21T14:14:50-04:00",
+                "first_name": "Felipe",
+                "last_name": "Mechailech",
+                "state": "disabled",
+                "note": null,
+                "verified_email": true,
+                "multipass_identifier": null,
+                "tax_exempt": false,
+                "phone": null,
+                "email_marketing_consent": {
+                    "state": "not_subscribed",
+                    "opt_in_level": "single_opt_in",
+                    "consent_updated_at": null
+                },
+                "sms_marketing_consent": null,
+                "tags": "",
+                "currency": "BRL",
+                "tax_exemptions": [],
+                "admin_graphql_api_id": "gid:\/\/shopify\/Customer\/7001004671288",
+                "default_address": {
+                    "id": 9189554389304,
+                    "customer_id": 7001004671288,
+                    "first_name": "Felipe",
+                    "last_name": "Mechailech",
+                    "company": null,
+                    "address1": "Rua Guaraná, 75",
+                    "address2": null,
+                    "city": "Curitiba",
+                    "province": "Paraná",
+                    "country": "Brazil",
+                    "zip": "81560-200",
+                    "phone": null,
+                    "name": "Felipe Mechailech",
+                    "province_code": "PR",
+                    "country_code": "BR",
+                    "country_name": "Brazil",
+                    "default": true
+                }
+            },
+            "discount_applications": [],
+            "fulfillments": [],
+            "line_items": [
+                {
+                    "id": 13947854487864,
+                    "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/13947854487864",
+                    "attributed_staffs": [],
+                    "current_quantity": 3,
+                    "fulfillable_quantity": 3,
+                    "fulfillment_service": "manual",
+                    "fulfillment_status": null,
+                    "gift_card": false,
+                    "grams": 1000,
+                    "name": "Biscoito Pedigree Biscrok Para Cães Adultos Multi 1kg",
+                    "price": "45.00",
+                    "price_set": {
+                        "shop_money": {
+                            "amount": "45.00",
+                            "currency_code": "BRL"
+                        },
+                        "presentment_money": {
+                            "amount": "45.00",
+                            "currency_code": "BRL"
+                        }
+                    },
+                    "product_exists": true,
+                    "product_id": 8384380404024,
+                    "properties": [],
+                    "quantity": 3,
+                    "requires_shipping": true,
+                    "sku": "7896029041956",
+                    "taxable": false,
+                    "title": "Biscoito Pedigree Biscrok Para Cães Adultos Multi 1kg",
+                    "total_discount": "0.00",
+                    "total_discount_set": {
+                        "shop_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        },
+                        "presentment_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        }
+                    },
+                    "variant_id": 45477266555192,
+                    "variant_inventory_management": "shopify",
+                    "variant_title": null,
+                    "vendor": "hubii-test",
+                    "tax_lines": [],
+                    "duties": [],
+                    "discount_allocations": []
+                }
+            ],
+            "payment_terms": null,
+            "refunds": [],
+            "shipping_address": {
+                "first_name": "Felipe",
+                "address1": "Rua Guaraná, 75",
+                "phone": null,
+                "city": "Curitiba",
+                "zip": "81560-200",
+                "province": "Paraná",
+                "country": "Brazil",
+                "last_name": "Mechailech",
+                "address2": null,
+                "company": null,
+                "latitude": -25.4833474,
+                "longitude": -49.2170166,
+                "name": "Felipe Mechailech",
+                "country_code": "BR",
+                "province_code": "PR"
+            },
+            "shipping_lines": [
+                {
+                    "id": 4371494404408,
+                    "carrier_identifier": "650f1a14fa979ec5c74d063e968411d4",
+                    "code": "Standard",
+                    "discounted_price": "0.00",
+                    "discounted_price_set": {
+                        "shop_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        },
+                        "presentment_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        }
+                    },
+                    "phone": null,
+                    "price": "0.00",
+                    "price_set": {
+                        "shop_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        },
+                        "presentment_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        }
+                    },
+                    "requested_fulfillment_service_id": null,
+                    "source": "shopify",
+                    "title": "Standard",
+                    "tax_lines": [],
+                    "discount_allocations": []
+                }
+            ]
+        },
+        {
+            "id": 5347385082168,
+            "admin_graphql_api_id": "gid:\/\/shopify\/Order\/5347385082168",
+            "app_id": 580111,
+            "browser_ip": "177.124.63.102",
+            "buyer_accepts_marketing": false,
+            "cancel_reason": null,
+            "cancelled_at": null,
+            "cart_token": "c1-6af4f6595380b69911daf9e05d785150",
+            "checkout_id": 36724275904824,
+            "checkout_token": "77bee57cc686415e540556f5e5f4b5e3",
+            "client_details": {
+                "accept_language": "en-BR",
+                "browser_height": null,
+                "browser_ip": "177.124.63.102",
+                "browser_width": null,
+                "session_hash": null,
+                "user_agent": "Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/114.0.0.0 Safari\/537.36"
+            },
+            "closed_at": null,
+            "company": null,
+            "confirmation_number": "JH6YD3KYD",
+            "confirmed": true,
+            "contact_email": "felipelatif@hubii.com.br",
+            "created_at": "2023-06-21T14:14:50-04:00",
+            "currency": "BRL",
+            "current_subtotal_price": "45.00",
+            "current_subtotal_price_set": {
+                "shop_money": {
+                    "amount": "45.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "45.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "current_total_additional_fees_set": null,
+            "current_total_discounts": "0.00",
+            "current_total_discounts_set": {
+                "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "current_total_duties_set": null,
+            "current_total_price": "45.00",
+            "current_total_price_set": {
+                "shop_money": {
+                    "amount": "45.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "45.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "current_total_tax": "0.00",
+            "current_total_tax_set": {
+                "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "customer_locale": "en-BR",
+            "device_id": null,
+            "discount_codes": [],
+            "email": "felipelatif@hubii.com.br",
+            "estimated_taxes": false,
+            "financial_status": "paid",
+            "fulfillment_status": null,
+            "landing_site": "\/",
+            "landing_site_ref": null,
+            "location_id": null,
+            "merchant_of_record_app_id": null,
+            "name": "#1001",
+            "note": null,
+            "note_attributes": [],
+            "number": 1,
+            "order_number": 1001,
+            "order_status_url": "https:\/\/hubii-test.myshopify.com\/78660829496\/orders\/ccac91545bfdda0a4824c95315e3341a\/authenticate?key=069c9ec5f4dc63266197549be6bce435",
+            "original_total_additional_fees_set": null,
+            "original_total_duties_set": null,
+            "payment_gateway_names": [
+                "bogus"
+            ],
+            "phone": null,
+            "po_number": null,
+            "presentment_currency": "BRL",
+            "processed_at": "2023-06-21T14:14:49-04:00",
+            "reference": "25b248d4e9de22fdc23639371dda79d9",
+            "referring_site": "",
+            "source_identifier": "25b248d4e9de22fdc23639371dda79d9",
+            "source_name": "web",
+            "source_url": null,
+            "subtotal_price": "45.00",
+            "subtotal_price_set": {
+                "shop_money": {
+                    "amount": "45.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "45.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "tags": "",
+            "tax_exempt": false,
+            "tax_lines": [],
+            "taxes_included": false,
+            "test": true,
+            "token": "ccac91545bfdda0a4824c95315e3341a",
+            "total_discounts": "0.00",
+            "total_discounts_set": {
+                "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "total_line_items_price": "45.00",
+            "total_line_items_price_set": {
+                "shop_money": {
+                    "amount": "45.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "45.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "total_outstanding": "0.00",
+            "total_price": "45.00",
+            "total_price_set": {
+                "shop_money": {
+                    "amount": "45.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "45.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "total_shipping_price_set": {
+                "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "total_tax": "0.00",
+            "total_tax_set": {
+                "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                },
+                "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "BRL"
+                }
+            },
+            "total_tip_received": "0.00",
+            "total_weight": 1000,
+            "updated_at": "2023-06-21T14:14:51-04:00",
+            "user_id": null,
+            "billing_address": {
+                "first_name": "Felipe",
+                "address1": "Rua Guaraná, 75",
+                "phone": null,
+                "city": "Curitiba",
+                "zip": "81560-200",
+                "province": "Paraná",
+                "country": "Brazil",
+                "last_name": "Mechailech",
+                "address2": null,
+                "company": null,
+                "latitude": null,
+                "longitude": null,
+                "name": "Felipe Mechailech",
+                "country_code": "BR",
+                "province_code": "PR"
+            },
+            "customer": {
+                "id": 7001004671288,
+                "email": "felipelatif@hubii.com.br",
+                "created_at": "2023-06-21T14:14:49-04:00",
+                "updated_at": "2023-06-21T14:14:50-04:00",
+                "first_name": "Felipe",
+                "last_name": "Mechailech",
+                "state": "disabled",
+                "note": null,
+                "verified_email": true,
+                "multipass_identifier": null,
+                "tax_exempt": false,
+                "phone": null,
+                "email_marketing_consent": {
+                    "state": "not_subscribed",
+                    "opt_in_level": "single_opt_in",
+                    "consent_updated_at": null
+                },
+                "sms_marketing_consent": null,
+                "tags": "",
+                "currency": "BRL",
+                "tax_exemptions": [],
+                "admin_graphql_api_id": "gid:\/\/shopify\/Customer\/7001004671288",
+                "default_address": {
+                    "id": 9189554389304,
+                    "customer_id": 7001004671288,
+                    "first_name": "Felipe",
+                    "last_name": "Mechailech",
+                    "company": null,
+                    "address1": "Rua Guaraná, 75",
+                    "address2": null,
+                    "city": "Curitiba",
+                    "province": "Paraná",
+                    "country": "Brazil",
+                    "zip": "81560-200",
+                    "phone": null,
+                    "name": "Felipe Mechailech",
+                    "province_code": "PR",
+                    "country_code": "BR",
+                    "country_name": "Brazil",
+                    "default": true
+                }
+            },
+            "discount_applications": [],
+            "fulfillments": [],
+            "line_items": [
+                {
+                    "id": 13946823934264,
+                    "admin_graphql_api_id": "gid:\/\/shopify\/LineItem\/13946823934264",
+                    "attributed_staffs": [],
+                    "current_quantity": 1,
+                    "fulfillable_quantity": 1,
+                    "fulfillment_service": "manual",
+                    "fulfillment_status": null,
+                    "gift_card": false,
+                    "grams": 1000,
+                    "name": "Biscoito Pedigree Biscrok Para Cães Adultos Multi 1kg",
+                    "price": "45.00",
+                    "price_set": {
+                        "shop_money": {
+                            "amount": "45.00",
+                            "currency_code": "BRL"
+                        },
+                        "presentment_money": {
+                            "amount": "45.00",
+                            "currency_code": "BRL"
+                        }
+                    },
+                    "product_exists": true,
+                    "product_id": 8384380404024,
+                    "properties": [],
+                    "quantity": 1,
+                    "requires_shipping": true,
+                    "sku": "7896029041956",
+                    "taxable": false,
+                    "title": "Biscoito Pedigree Biscrok Para Cães Adultos Multi 1kg",
+                    "total_discount": "0.00",
+                    "total_discount_set": {
+                        "shop_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        },
+                        "presentment_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        }
+                    },
+                    "variant_id": 45477266555192,
+                    "variant_inventory_management": "shopify",
+                    "variant_title": null,
+                    "vendor": "hubii-test",
+                    "tax_lines": [],
+                    "duties": [],
+                    "discount_allocations": []
+                }
+            ],
+            "payment_terms": null,
+            "refunds": [],
+            "shipping_address": {
+                "first_name": "Felipe",
+                "address1": "Rua Guaraná, 75",
+                "phone": null,
+                "city": "Curitiba",
+                "zip": "81560-200",
+                "province": "Paraná",
+                "country": "Brazil",
+                "last_name": "Mechailech",
+                "address2": null,
+                "company": null,
+                "latitude": -25.4833474,
+                "longitude": -49.2170166,
+                "name": "Felipe Mechailech",
+                "country_code": "BR",
+                "province_code": "PR"
+            },
+            "shipping_lines": [
+                {
+                    "id": 4371131859256,
+                    "carrier_identifier": "650f1a14fa979ec5c74d063e968411d4",
+                    "code": "Standard",
+                    "discounted_price": "0.00",
+                    "discounted_price_set": {
+                        "shop_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        },
+                        "presentment_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        }
+                    },
+                    "phone": null,
+                    "price": "0.00",
+                    "price_set": {
+                        "shop_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        },
+                        "presentment_money": {
+                            "amount": "0.00",
+                            "currency_code": "BRL"
+                        }
+                    },
+                    "requested_fulfillment_service_id": null,
+                    "source": "shopify",
+                    "title": "Standard",
+                    "tax_lines": [],
+                    "discount_allocations": []
+                }
+            ]
+        }
+    ]
+}
