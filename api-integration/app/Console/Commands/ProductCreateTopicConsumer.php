@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Log;
 use Junges\Kafka\Facades\Kafka;
 use Junges\Kafka\Contracts\KafkaConsumerMessage;
 
+/**
+ * В команде реализована подписка на события Kafka
+ */
 class ProductCreateTopicConsumer extends Command
 {
     /**
@@ -31,18 +34,20 @@ class ProductCreateTopicConsumer extends Command
     public function handle()
     {
 
+        //Создается консумер
         $consumer = Kafka::createConsumer(['product'])
             // ->withBrokers('localhost:8092')
             ->withAutoCommit()
             ->withHandler(function(KafkaConsumerMessage $message) {
-                // Handle your message here
+                // Управление сообщениями происходит здесь:
 
-                $product = $message->getBody();                
+                $product = $message->getBody(); //Получает товары из Kafka
                 Log::info('Produto:');
                 Log::debug($product);
                 Log::info('------');
 
                 // $product = $this->data;
+                //находит соотвтествие идентификатора с идентификатором в БД
                 $id_shopify = ShopifyProduct::whereIdProduct($product['id'])->value("id_shopify");
                 if ($id_shopify > 0) {
                     $product['id_shopify'] = $id_shopify;
@@ -60,7 +65,7 @@ class ProductCreateTopicConsumer extends Command
                         'all' => json_encode($response['body']['product'])
                     ];
                     log::info('Array a ser inserido produto:'.$product['id'], $insertArray);
-        
+
                     log::info("teste", $insertArray);
                     ShopifyProduct::create($insertArray);
                     return;
@@ -70,7 +75,7 @@ class ProductCreateTopicConsumer extends Command
 
             })
             ->build();
-            
+
         $consumer->consume();
 
 

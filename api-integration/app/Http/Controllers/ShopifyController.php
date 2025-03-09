@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use Exception;
 use Illuminate\Support\Facades\Http;
 
+/**
+ * Контроллер. В нём объявлены исключительно статические методы. Методы контроллера вызываются либо из Jobs либо из команд
+ */
 class ShopifyController extends Controller
 {
 
+    /**
+     * Обновить товары в API
+     *
+     * @param $product
+     * @return array
+     */
     public static function updateProductShopify($product): array
     {
         try {
@@ -34,6 +43,12 @@ class ShopifyController extends Controller
         }
     }
 
+    /**
+     * Создать товары в API
+     *
+     * @param $product
+     * @return array
+     */
     public static function createProductShopify($product): array
     {
         try {

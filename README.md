@@ -1,56 +1,55 @@
-# Challenge
+# Описание проекта
+В проекте имеется внутренняя БД с 
 
+## Папка-подпроект `api-integration`
+Имеется внутренняя База Данных и таблица `shopify_product`
 
-Estamos procurando um desenvolvedor back-end sênior para se juntar à nossa equipe e ajudar a criar e gerenciar nossos micro-serviços em PHP (Laravel). Este teste técnico tem como objetivo avaliar suas habilidades técnicas nessas áreas.
-
-## Instruções Gerais
-
-Crie três micro-serviços separados usando Laravel: Produto, Pedido e Integração com Shopify.
-Os serviços devem se comunicar entre si conforme necessário.
-
-Implemente autenticação JWT ou OAuth 2.0 para os micro-serviços.
-
-Escreva testes unitários e de integração para os micro-serviços.
-
-### Micro-Serviço de Produto
-
-Implemente um endpoint para a criação de um novo produto. O produto deve ter, no mínimo, um nome, uma descrição e um preço.
- 
-Implemente um endpoint para listar todos os produtos disponíveis.
-
-Implemente um endpoint para atualizar as informações de um produto existente.
-
-### Micro-Serviço de Pedido
-
-Implemente um endpoint para a criação de um novo pedido. O pedido deve fazer referência a um ou mais produtos.
-
-Implemente um endpoint para listar todos os pedidos realizados.
-
-### Micro-Serviço de Integração
-
-Implemente uma funcionalidade que sincroniza a lista de produtos entre o micro-serviço de Produto e a loja Shopify. A sincronização deve ocorrer quando um produto é criado, atualizado ou excluído no micro-serviço de Produto.
-
-Implemente uma funcionalidade que sincroniza a lista de pedidos entre a loja Shopify e o micro-serviço de Pedido. A sincronização deve ocorrer quando um pedido é feito na loja Shopify.
-
-Implemente um sistema de manuseio de erros robusto para lidar com possíveis falhas na comunicação entre os micro-serviços e a loja Shopify.
-
-Implemente logs que rastreiem todas as ações realizadas pelo micro-serviço de Integração com Shopify.
-
-
-
-# Solução
-
-1 - Gerando certificado ssl para trabalhar local usando mkcerts
-
-Instalação no seu ambiente no seguinte link:
-[text](https://github.com/FiloSottile/mkcert?ref=knp-backend.ghost.io)
-
-
-cd /nginx/certs
-mkcert -key-file hubii.local.key.pem -cert-file hubii.local.pem localhost hubbi.local "*.local" 127.0.0.1 ::1
-
-Atualizar hosts
-
+```PHP
+      Schema::create('shopify_product', function (Blueprint $table) {
+            $table->bigInteger('id_product')->nullable(false);
+            $table->bigInteger('id_shopify')->nullable(false);
+            $table->json('all')->nullable();
+            $table->timestamps();
+            $table->unique(['id_product', 'id_shopify']);
+        });
 ```
-sudo sh -c 'echo "127.0.0.1 *.local" >> /etc/hosts'
+
+Ещё имеется внешний API `Shopify`, который управляется через обёртку `Http::shopify()`.
+
+Использована библиотека `mateusjunges/laravel-kafka` для Kafka и `shopify/shopify-api` для Shopify.
+Данный проект устроен особым образом. В контроллере описаны статические методы `public static function updateProductShopify($product): array` и `public static function createProductShopify($product): array`. Они вызываются из команды `ProductCreateTopicConsumer`, которая подписывается на события Kafka.
+
+### Устройство контроллера `ShopifyController`
+- Статический метод `updateProductShopify`. В нём происходит обращение к внешнему API для создания товаров. `$response = Http::shopify()->post("/products/".$product['id_shopify'], [` - обращение к API происходит так. 
+- Статический метод `createProductShopify`. В нём происходит обращение к внешнему API для создания товаров. `$response = Http::shopify()->post('/products.json', [` - обращение к API происходит так. 
+
+### Команда `ProductCreateTopicConsumer`
+Подписка на события так 
+```PHP
+$consumer = Kafka::createConsumer(['product'])
+// ->withBrokers('localhost:8092')
+->withAutoCommit()
+->withHandler(function(KafkaConsumerMessage $message) {
+```
+Когда сообщение появляется, вызываются статические методы контроллера `ShopifyController` в зависимости от того создан ли объект в Shopify или не создан, происходит вызов API создания или обновления данных товара.
+
+### Контроллер `ShopifyProductController.php` реализовывает REST API редактирования товаров.
+
+### Маршруты
+- REST API
+```PHP 
+Route::controller(ShopifyProductController::class)->group(function () {
+    Route::post('/products', 'store');
+    Route::get('/products', 'index');
+    Route::get('/products/{id}', 'show');
+    Route::put('/products/{id}', 'update');
+    Route::delete('/products/{id}', 'destroy');
+});
+```
+- Имеется редирект на внешний API в роутах для получения информации о товарах
+```PHP
+Route::get('/shopify/products', function () {
+    $products = Http::shopify()->get('/products.json');
+    return response($products);
+});
 ```
