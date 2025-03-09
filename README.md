@@ -13,6 +13,9 @@
             $table->unique(['id_product', 'id_shopify']);
         });
 ```
+`id_product` означает идентификатор товара в БД проекта
+`id_shopify` означает идентификатор товара во внешнем API Shopify
+`all` это данные полученные из внешнего API Shopify
 
 Ещё имеется внешний API `Shopify`, который управляется через обёртку `Http::shopify()`.
 
@@ -52,4 +55,55 @@ Route::get('/shopify/products', function () {
     $products = Http::shopify()->get('/products.json');
     return response($products);
 });
+```
+
+### Job `ProductIntegrationJob`
+Берётся идентификатор товара и для него ищется соответствие в Базе Данных в таблице `shopify_product`. Если запись с идентификатором продукта найдена, обновляется продукт во внешнем API Shopify через вызов метода `updateProductShopify` в контроллере `ShopifyController`. Если записи нет, то вызывается `createProductShopify` в контроллере `ShopifyController`. После получения ответа с внешнего API создается или обновляется запись в таблице `shopify_product`
+
+
+
+
+## Папка-подпроект `api-product`
+Имеется внутренняя База Данных и таблица `shopify_product`
+Маршруты тут такие
+```PHP
+Route::post('/getToken', [KeycloakController::class, 'index']);
+
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::controller(ProductController::class)->group(function () {
+        Route::post('/products', 'store');
+        Route::get('/products', 'index');
+        Route::get('/products/{id}', 'show');
+        Route::put('/products/{id}',  'update');
+        Route::delete('/products/{id}',  'destroy');
+    });
+});
+```
+### Контроллер `ProductController`. 
+Он реализует REST API
+
+### Контроллер `KeycloakController` 
+Делает внешний запрос к внешнему API
+
+### Обсервер `ProductObserver`
+Он наблюдает за моделью Product. В случае создания товара он публикует сообщение в Kafka в топик `'product-created'`
+```PHP
+Kafka::publishOn('product-created')
+        ->withMessage($message)
+        ->send();
+```
+Тип header `headers: ['product' => 'created']`. Тело сообщений в виде массива
+
+В случае обновления товара он публикует сообщение в Kafka в топик `'product-updated'`
+```PHP
+Kafka::publishOn('product-updated')
+        ->withKafkaKey('')        
+        ->withMessage($message)
+        ->send();
+```
+Тип header `headers: ['product' => 'updated']`. Тело сообщений в виде массива
+
+При удалении товара создается новая задача в очереди `Job` c прикрепленными данными Product в виде массива
+```PHP
+ProductIntegrationJob::dispatch($dataToSend)->onQueue('integration_queue');
 ```
